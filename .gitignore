@@ -11,3 +11,4 @@ old/*
 *.pptx
 # private
 data/*
+venv/*
