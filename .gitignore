@@ -9,3 +9,5 @@ thumbs.db
 .idea
 old/*
 *.pptx
+# private
+data/*
