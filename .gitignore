@@ -10,5 +10,6 @@ thumbs.db
 old/*
 *.pptx
 # private
+sample/content/*
 data/*
 venv/*
