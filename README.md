@@ -184,8 +184,8 @@ The most important finding of this paper is that a robust ASR actually learns a 
 Since we freeze the Whisper model, in our experiments, we extract and save the Whisper features first. 
 
 There are two ways to extract Whisper features:
-- You can use the released version of Whisper-AT and get the audio feature [[at this line]](https://github.com/YuanGongND/whisper-at/blob/d68531414a118b9fcf46d0e1ae9715ee8fa67d0f/package/whisper-at/whisper_at/transcribe.py#L258C25-L258C25), by adding `result.audio_features_for_at` to the returns of `transcribe` function. You can get the pooled (x20 temporal downsampling) audio representation of each Whisper audio encoder.
-E.g., for Whisper-Large, `result.audio_features_for_at` is of shape [32, 75, 1280], where 32 is the number of Whisper encoder layer, 75 is the time length (30s * 100 = 3000 frames / 2 (Whisper downsample) / 20 (AT downsample) = 75). Note the Whisper window is always 30s. So if your input audio is 10s, you need to slice the first 25 time steps.
+- You can use the released version of Whisper-AT and get the audio feature [[at this line]](https://github.com/YuanGongND/whisper-at/blob/d68531414a118b9fcf46d0e1ae9715ee8fa67d0f/package/whisper-at/whisper_at/transcribe.py#L258C25-L258C25), by adding `result['audio_features_for_at']` to the returns of `transcribe` function. You can get the pooled (x20 temporal downsampling) audio representation of each Whisper audio encoder.
+E.g., for Whisper-Large, `result['audio_features_for_at']` is of shape [32, 75, 1280], where 32 is the number of Whisper encoder layer, 75 is the time length (30s * 100 = 3000 frames / 2 (Whisper downsample) / 20 (AT downsample) = 75). Note the Whisper window is always 30s. So if your input audio is 10s, you need to slice the first 25 time steps.
 i.e., [32, 25, 1280]. In addition, with the padded zeros and attention mechanism, the output won't be same as just inputting 10s audio without padding.
   - Advantage: polished code.
   - Disadvantage: always padded to 30s (which is acceptable), not used in our paper experiments.
