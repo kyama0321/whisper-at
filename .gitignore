@@ -9,3 +9,10 @@ thumbs.db
 .idea
 old/*
 *.pptx
+
+# venv
+/venv/
+
+# folder
+/sample/
+/data/
