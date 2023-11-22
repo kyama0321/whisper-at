@@ -8,6 +8,8 @@
 import whisper_at as whisper
 
 model = whisper.load_model("large-v1")
+
+#result = model.transcribe("/home/jovyan/data/whisper-at/sample/content/sample_audio.flac")
 result = model.transcribe("/data/sls/scratch/yuangong/dataset/adress_train/ADReSS-IS2020-data/train/Full_wave_enhanced_audio/cc/S024.wav")
 #result = model.transcribe("/data/sls/scratch/yuangong/whisper-at/sample_audio/007P6bFgRCU_10.000.flac", at_time_res=2)
 
@@ -30,4 +32,5 @@ for segment in at_res:
 print(all_seg)
 
 whisper.print_support_language()
-whisper.print_label_name(language='zh')
+#whisper.print_label_name(language='zh')
+whisper.print_label_name(language='ja')

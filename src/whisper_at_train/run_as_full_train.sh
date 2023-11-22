@@ -7,7 +7,7 @@
 #SBATCH --job-name="w-as-high"
 #SBATCH --output=./log/%j_as.txt
 
-set -x
+set -x # echo on
 # comment this line if not running on sls cluster
 . /data/sls/scratch/share-201907/slstoolchainrc
 source /data/sls/scratch/yuangong/whisper-a/venv-a5/bin/activate
