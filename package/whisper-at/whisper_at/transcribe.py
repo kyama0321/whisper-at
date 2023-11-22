@@ -255,7 +255,7 @@ def transcribe(
             at_start = math.floor(seek % at_decision_window / 40)  # start from the beginning of a decision window, divide by 40 due to downsampling relationship between seek and pooled feature
             #print(at_start, result.audio_features_for_at[:, at_start:, :].shape)
             audio_tag = model.at_model(result.audio_features_for_at[:, at_start:, :], time_resolution=at_time_res)
-            del result.audio_features_for_at
+            #del result.audio_features_for_at
             #np.save('/data/sls/scratch/yuangong/whisper-at/sample_audio/007P6bFgRCU_10.000_wat.npy', result.audio_features_for_at.detach().cpu().numpy())
             #print(audio_tag.shape)
             cur_at_start, cur_at_end = math.floor(seek/at_decision_window), min(all_audio_tags.shape[0], math.floor(seek/at_decision_window)+audio_tag.shape[0])
@@ -399,7 +399,8 @@ def transcribe(
         segments=all_segments,
         language=language,
         at_time_res=at_time_res,
-        audio_tag=all_audio_tags.detach().cpu()
+        audio_tag=all_audio_tags.detach().cpu(),
+        audio_features_for_at=result.audio_features_for_at.detach().cpu()
     )
 
 
