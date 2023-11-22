@@ -10,7 +10,7 @@
 
 ## Introduction
 
-[**[Paper]**](https://www.isca-speech.org/archive/pdfs/interspeech_2023/gong23d_interspeech.pdf)
+[**[Paper]**](https://arxiv.org/pdf/2307.03183.pdf)
 
 [**[HuggingFace Space]**](https://huggingface.co/spaces/yuangongfdu/whisper-at) (Try Whisper-AT without Coding!)
 
@@ -18,7 +18,7 @@
 
 [**[Local Notebook Demo]**(for user without Colab access)](https://github.com/YuanGongND/whisper-at/blob/main/sample/whisper_at_demo.ipynb)
 
-<p align="center"><img src="https://github.com/YuanGongND/whisper-at/blob/main/poster.png?raw=true" alt="Illustration of Whisper-AT." width="800"/></p>
+<p align="center"><img src="https://github.com/YuanGongND/whisper-at/blob/main/tltr.png?raw=true" alt="Illustration of Whisper-AT." width="800"/></p>
 
 <div align="center">
   (Please turn on audio to listen to the sounds)
@@ -45,10 +45,10 @@ In shell,
 pip install whisper-at
 ```
 
-For Mac/Windows users, there is a known bug, please use the following workaround:
+For Mac users, there is a known bug, please use the following workaround:
 ```bash
-# install all dependencies except triton
-pip install numba numpy torch tqdm more-itertools tiktoken==0.3.3
+# install all dependencies except triton, this will break when it tries to install triton
+pip install whisper-at 
 # install whisper-at without any dependency
 pip install --no-deps whisper-at  
 ```
@@ -94,10 +94,10 @@ Whisper-AT can be installed simply by:
 
     pip install whisper-at
 
-For Mac/Windows users, there is a known bug, please use the following workaround:
+For Mac users, there is a known bug, please use the following workaround:
 ```bash
-# install all dependencies except triton
-pip install numba numpy torch tqdm more-itertools tiktoken==0.3.3
+# install all dependencies except triton, this will break when it tries to install triton
+pip install whisper-at 
 # install whisper-at without any dependency
 pip install --no-deps whisper-at  
 ```
@@ -280,5 +280,3 @@ Whisper-AT's code and model weights are released under a BSD license, which is s
 
 ## Contact
 If you have a question, please create a Github issue (preferred) or send me an email [yuangong@mit.edu](yuangong@mit.edu).
-
-
